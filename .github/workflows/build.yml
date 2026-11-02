@@ -28,6 +28,8 @@ jobs:
         run: |
           mkdir -p BaritoneControlUI
           tar -xJf BaritoneControlUI-source.tar.xz -C BaritoneControlUI
+      - name: Apply Minecraft 26.2 Loom configuration
+        run: sed -i 's/modImplementation /implementation /' BaritoneControlUI/build.gradle
       - name: Read version
         id: version
         run: echo "version=$(sed -n 's/^mod_version=//p' BaritoneControlUI/gradle.properties)" >> "$GITHUB_OUTPUT"
